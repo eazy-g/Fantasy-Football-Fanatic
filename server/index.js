@@ -1,6 +1,8 @@
 var browserify = require('browserify-middleware')
 var express = require('express')
 var Path = require('path')
+var axios = require('axios')
+var cheerio = require('cheerio'), $;
 
 var routes = express.Router()
 
@@ -14,7 +16,14 @@ routes.get('/app-bundle.js',
 // Example endpoint (also tested in test/server/index_test.js)
 //
 routes.get('/api/tags-example', function(req, res) {
-  res.send(['node', 'express', 'browserify', 'mithril'])
+  // res.send(['node', 'express', 'browserify', 'mithril'])
+  axios.get('http://www.rotoworld.com/player/nfl/5168/lesean-mccoy')
+  .then(function(response){
+    $ = cheerio.load(response.data)
+    // res.send(response.data)
+    var myText = $('div .pp').html()
+    res.send(myText)
+  })
 })
 
 //
