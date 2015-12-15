@@ -30,15 +30,50 @@ routes.get('/app-bundle.js',
 // Example endpoint (also tested in test/server/index_test.js)
 //
 //req.data
-routes.get('/rob_gronkowski', function(req, res) {
+
+var playerEndpoints = {
+  'Rob Gronkowski': '5729/rob-gronkowski/1',
+  'LeSean McCoy': '5168/lesean-mccoy',
+  'Aaron Rodgers': '3118/aaron-rodgers',
+  'Antonio Gates': '611/antonio-gates'
+}
+
+routes.post('/players', function(req, res) {
   // res.send(['node', 'express', 'browserify', 'mithril'])
-  console.log(req.data)
-  axios.get('http://www.rotoworld.com/player/nfl/5729/rob-gronkowski/1')
+  console.log("this is the request", req.body.name)
+  var name = req.body.name
+  var url = playerEndpoints[name]
+  axios.get('http://www.rotoworld.com/player/nfl/' + url)
   .then(function(response){
     $ = cheerio.load(response.data)
     // res.send(response.data)
     var myText = $('div .pp').html()
     res.send({ html: myText })
+  })
+})
+
+routes.post('/berry', function(req, res){
+  var name = req.body.name
+  axios.get('http://espn.go.com/fantasy/football/story/_/page/TMR151210/matthew-berry-fantasy-football-picks-sleepers-busts-week-14')
+  .then(function(response){
+
+    $ = cheerio.load(response.data)
+
+    var myText = $("a:contains(" + name + ")").closest('p').html()
+    res.send({html: myText})
+  })
+})
+
+routes.get('/ranks', function(req, res){
+  axios.get('http://espn.go.com/fantasy/football/story/_/page/15ranksWeek14QB/fantasy-football-week-14-quarterback-rankings')
+  .then(function(response){
+
+    $ = cheerio.load(response.data)
+    var name = 'Aaron Rodgers'
+    // var myText = $("a:contains(" + name + ")")
+    var myText = $('div .article-body').text()
+    res.send(myText)
+    // res.send(response.data)
   })
 })
 
