@@ -12,17 +12,33 @@ var routes = express.Router()
 routes.get('/app-bundle.js',
   browserify('./client/app.js'))
 
-//
+// var headers = {
+//   "access-control-allow-origin": "*",
+//   "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+//   "access-control-allow-headers": "content-type, accept",
+//   "access-control-max-age": 20 // Seconds.
+// };
+
+// routes.options('*', function(req, res){
+//   res.set(headers);
+//   res.status(201).send(headers);
+//   res.end();
+// });
+
+// So every request has to be to this endpoint, req will conatin
+// Player data
 // Example endpoint (also tested in test/server/index_test.js)
 //
-routes.get('/api/tags-example', function(req, res) {
+//req.data
+routes.get('/rob_gronkowski', function(req, res) {
   // res.send(['node', 'express', 'browserify', 'mithril'])
-  axios.get('http://www.rotoworld.com/player/nfl/5168/lesean-mccoy')
+  console.log(req.data)
+  axios.get('http://www.rotoworld.com/player/nfl/5729/rob-gronkowski/1')
   .then(function(response){
     $ = cheerio.load(response.data)
     // res.send(response.data)
     var myText = $('div .pp').html()
-    res.send(myText)
+    res.send({ html: myText })
   })
 })
 

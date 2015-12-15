@@ -1,5 +1,5 @@
 var m = require('mithril')
-var MyComponent = require('./components/MyComponent')
+// var MyComponent = require('./components/MyComponent')
 
 //
 // Global variable for global state (e.g. currentUser)
@@ -8,6 +8,8 @@ window.App = {}
 
 //
 // Client-side routing
+
+var Playa = require('./components/MyComponent')
 //
 m.route.mode = 'pathname'
 m.route(document.getElementById('app'), '/', {
@@ -18,8 +20,8 @@ m.route(document.getElementById('app'), '/', {
 
     view: function (ctrl) {
       return m('.app', [
-        m('h1', 'Node Catapult'),
-        m.component(MyComponent, { title: 'Welcome to my app!' })
+        m('h1', 'Fantasy Foozball'),
+        m.component(Playa, { title: 'Lesean McCoy' })
       ])
     }
   }
