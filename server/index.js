@@ -90,8 +90,15 @@ if (process.env.NODE_ENV !== 'test') {
   // This is for supporting browser history pushstate.
   // NOTE: Make sure this route is always LAST.
   //
+  routes.get('/', function(req, res){
+    res.sendFile(assetFolder + '/index.html')
+  })
+
   routes.get('/*', function(req, res){
-    res.sendFile( assetFolder + '/index.html' )
+    req.url = '..' + req.url;
+    console.log('wildcard', req.url);
+    console.log('dirname', Path.resolve(__dirname, req.url ));
+    res.sendFile(Path.resolve(__dirname, req.url ));
   })
 
   //

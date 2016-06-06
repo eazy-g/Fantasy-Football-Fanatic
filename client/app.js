@@ -19,16 +19,17 @@ var Playa = require('./components/MyComponent')
 m.route.mode = 'pathname'
 m.route(document.getElementById('app'), '/', {
 
-  '/': {
+  '/': Playa
+  // '/search': Playa//{
     // Controllers are optional
     // controller: function () {},
 
-    view: function (ctrl) {
-      return m('.app', [
-        m('h1', 'Fantasy Foozball'),
-        m.component(Playa, { title: 'Lesean McCoy' })
-      ])
-    }
-  }
+    // view: function (ctrl) {
+    //   return m('.app', [
+    //     m('h1', 'Fantasy Foozball'),
+    //     m.component(Playa, { title: 'Lesean McCoy' })
+    //   ])
+    // }
+  // }
 
 })
