@@ -1,35 +1,22 @@
-# Node Catapult
+# Fantasy Football Fanatic
 
-A boilerplate starter project that includes Node, Express, Browserify, and Mithril:
+A website that provides an aggregation of current fantasy football news for any given player
 
-* Minimal - Understand everything.
-* Efficient - Great defaults for development and production.
-* Rapid - Get started immediately.
+Currently not deployed. If you'd like to try it right now, follow instructions below:
 
 ## Getting Started
 
 ```
-$ git clone https://github.com/mindeavor/node-catapult my-project
-$ cd my-project
+$ git clone https://github.com/eazy-g/Fantasy-Football-Fanatic.git test-site
+$ cd test-site
 $ npm install
 $ npm start
 ```
 
 Now visit [localhost:4000](http://localhost:4000/)
 
-### Running the Tests
+The only acceptable names at this time are:
 
-There is a basic test framework in your `test/` folder. To run the tests, simply run `npm test`.
+'Rob Gronkowski', 'LeSean McCoy', 'Aaron Rodgers', 'Antonio Gates'
 
-## Jump-starting your App
-
-[Check the wiki](https://github.com/mindeavor/node-catapult/wiki) for snippets to jump-start your app, including:
-
-- Support for SASS and Babel
-- Express cookie sessions
-- Postgres and knex.js
-- A functional-programming-based "ORM" pattern for your database models
-
-## Browserify Middleware
-
-The most notable part of this app is [browserify-middleware](https://github.com/ForbesLindesay/browserify-middleware). Great node packages are exceedingly rare – this is one of those packages.
+...spelled exactly as shown. Only four names are acceptable right now because the main website I am pulling news from requires a specific url for every player, and I did not want to waste time hard coding hundreds of different player urls. This is solely a proof of concept at this point :) There is no error handling yet either, hence the required exact spelling. And also close to no css. 
