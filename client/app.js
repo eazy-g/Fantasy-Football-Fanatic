@@ -8,19 +8,20 @@ var m = require('mithril')
 window.App = {}
 
 // webshot('google.com', 'google.png', function(err) {
-//   // screenshot now saved to google.png 
+//   // screenshot now saved to google.png
 // })
 
 //
 // Client-side routing
 
-var Playa = require('./components/MyComponent')
+var Playa = require('./components/MyComponent');
+var splash = require('./components/splashPage.js');
 //
-m.route.mode = 'pathname'
+m.route.mode = 'search'
 m.route(document.getElementById('app'), '/', {
 
-  '/': Playa
-  // '/search': Playa//{
+  '/': Playa,
+  '/search': splash//{
     // Controllers are optional
     // controller: function () {},
 
