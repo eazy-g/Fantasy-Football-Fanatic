@@ -40,16 +40,27 @@ Player.view = function (ctrl, options) {
   return m('.my-component', [
     // m('h2', options.title)
     m('h2', ctrl.playa),
-    m('form', { onsubmit: ctrl.getInfo}, [
-
-      m('label', "Player name:"),
-      m('input[type=text]', {
-      	value: ctrl.playa,
-      	onchange: function(e){ctrl.playa = e.currentTarget.value}
-      }),
-      m('br'),
-      m('button[type=submit', "get")
-    	]),
+    // m('form', { onsubmit: ctrl.getInfo}, [
+    m('.container', [
+      m('.row', [
+        m('.col-lg-6 text-center', [
+          m('.input-group', [
+            m('input', {type: 'text', class: 'form-control', placeholder: 'Ex. Rob Gronkowski'}),
+            m('span', {class: 'input-group-button'}, [
+              m('button', {class: 'btn btn-default', type: 'button'}, 'Go!')
+              ])
+            ]) //.input-group
+          ])
+        ])
+      ]),
+      // m('label', "Player name:"),
+      // m('input[type=text]', {
+      // 	value: ctrl.playa,
+      // 	onchange: function(e){ctrl.playa = e.currentTarget.value}
+      // }),
+      // m('br'),
+      // m('button[type=submit', "get")
+    	// ]),
     playerView(ctrl),
     berryView(ctrl)
     // m('.playerStuff', m.trust(ctrl.stats))
@@ -63,7 +74,7 @@ function playerView (ctrl){
 			m('h2', 'Rotoworld:'),
 			m('.roto', m.trust(ctrl.stats))
 		])
-	}	
+	}
   else{
   	return m('.playerStuff', [
   		m('h2', 'Accessing Rotoworld, ESPN, etc.')
@@ -79,6 +90,6 @@ function berryView (ctrl){
 		])
 	}
 	// else{
-	// 	return 
+	// 	return
 	// }
 }

@@ -7,20 +7,20 @@ splashPage.view = function(ctrl){
       m('.cover-container', [
         m('.masthead clearfix', [
           m('.inner', [
-            m('h3', {class: "masthead-brand"}, "Cover"),
+            m('h3', {class: "masthead-brand"}, "Fantasy Football Fanatic"),
             m('nav', [
               m('ul.nav masthead-nav', [
                 m('li.active', m('a', {href: '#'}, 'Home')),
-                m('li', m('a', {href: '#'}, 'Features')),
+                m('li', m('a', {href: '#'}, 'Search Players')),
                 m('li', m('a', {href: '#'}, 'Contact'))
                 ])
               ])
             ])
           ]), //masthead clearfix
         m('.inner cover', [
-          m('h1', {class: 'cover-heading'}, 'Cover your page'),
-          m('p', {class: 'lead'}, 'Blah blah blahhhhhhhhhh'),
-          m('p.lead', m('a', {href: '#', class: 'btn btn-lg btn-default'}, 'Learn more'))
+          m('h1', {class: 'cover-heading'}, 'An aggregatioin of everything you need'),
+          m('p', {class: 'lead'}, 'Click below to start pulling news from the most relevant fantasy football sites'),
+          m('p.lead', m('a', {href: '#/search', class: 'btn btn-lg btn-default'}, 'Enter'))
           ]),
         m('.mastfoot', [
           m('.inner', [

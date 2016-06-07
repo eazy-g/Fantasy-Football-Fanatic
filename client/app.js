@@ -17,20 +17,9 @@ window.App = {}
 var Playa = require('./components/MyComponent');
 var splash = require('./components/splashPage.js');
 //
-m.route.mode = 'search'
+m.route.mode = 'hash'
 m.route(document.getElementById('app'), '/', {
 
-  '/': Playa,
-  '/search': splash//{
-    // Controllers are optional
-    // controller: function () {},
-
-    // view: function (ctrl) {
-    //   return m('.app', [
-    //     m('h1', 'Fantasy Foozball'),
-    //     m.component(Playa, { title: 'Lesean McCoy' })
-    //   ])
-    // }
-  // }
-
+  '/': splash,
+  '/search': Playa
 })
