@@ -32,16 +32,16 @@ routes.get('/app-bundle.js',
 //req.data
 
 var playerEndpoints = {
-  'Rob Gronkowski': '5729/rob-gronkowski/1',
-  'LeSean McCoy': '5168/lesean-mccoy',
-  'Aaron Rodgers': '3118/aaron-rodgers',
-  'Antonio Gates': '611/antonio-gates'
+  'rob gronkowski': '5729/rob-gronkowski/1',
+  'lesean mccoy': '5168/lesean-mccoy',
+  'aaron rodgers': '3118/aaron-rodgers',
+  'antonio gates': '611/antonio-gates'
 }
 
 routes.post('/players', function(req, res) {
   // res.send(['node', 'express', 'browserify', 'mithril'])
   console.log("this is the request", req.body.name)
-  var name = req.body.name
+  var name = req.body.name.toLowerCase();
   var url = playerEndpoints[name]
   axios.get('http://www.rotoworld.com/player/nfl/' + url)
   .then(function(response){
