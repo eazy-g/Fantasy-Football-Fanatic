@@ -16,8 +16,6 @@ Player.controller = function (options) {
 	ctrl.getInfo = function(e){
 	  e.preventDefault()
 
-	  console.log('get info has run')
-
 	  Playa.getInfo(ctrl.playa).then(function(response){
 	  	ctrl.stats = response.html
 	  })
@@ -27,8 +25,6 @@ Player.controller = function (options) {
 
 	ctrl.getBerry = function(e){
 		e.preventDefault()
-
-		console.log("berry has run")
 
 		Playa.getBerry(ctrl.playa).then(function(response){
 			ctrl.lovehate = response.html
